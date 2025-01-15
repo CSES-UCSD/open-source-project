@@ -1,0 +1,66 @@
+/* Main Navbar container */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Space between logo and links */
+    align-items: center;
+    background-color: #001a33; /* Dark navy blue */
+    padding: 15px 30px;
+    font-family: 'Arial', sans-serif; /* Clean font */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+  }
+  
+  
+  /* Logo stays on the left */
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Navbar links go to the right */
+  .navbar-links {
+    display: flex;
+    list-style: none;
+    gap: 30px; /* Spacing between links */
+    margin-left: auto; /* Push links to the right */
+  }
+  
+  /* Common link styling */
+  .navbar-links li a {
+    color: white; /* White text for links */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  
+  /* Hover effect for links */
+  .navbar-links li a:hover {
+    color: #f4b400; /* Yellow for hover effect */
+  }
+  
+  /* Login button */
+  .navbar-links .login a {
+    background-color: #f4b400; /* Yellow button */
+    color: #001a33; /* Dark blue text */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .navbar-links .login a:hover {
+    background-color: #ffd966; /* Lighter yellow on hover */
+    transform: scale(1.05); /* Slight scale effect */
+  }
+  
+  /* Logout button styling */
+  .navbar-links .logout a {
+    color: #ff4d4d; /* Bright red for logout */
+    font-weight: bold;
+  }
+  
+  .navbar-links .logout a:hover {
+    color: #ff6666; /* Lighter red for hover */
+    text-decoration: underline;
+  }
+  
