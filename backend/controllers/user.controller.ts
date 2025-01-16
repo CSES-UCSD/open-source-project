@@ -1,8 +1,9 @@
 import User from "../models/user.model.js";
 import { errorHandler } from "../utils/error.js";
 import bcryptjs from "bcryptjs";
+import { Request, Response, NextFunction } from "express";
 
-export function test(req, res) {
+export function test(req: Request, res: Response) {
   res.json({
     message: "API is working!",
   });
@@ -10,7 +11,7 @@ export function test(req, res) {
 
 // update user
 
-export async function updateUser(req, res, next) {
+export async function updateUser(req: Request, res: Response, next: NextFunction) {
   try {
     if (req.body.password) {
       req.body.password = bcryptjs.hashSync(req.body.password, 10);
@@ -37,7 +38,7 @@ export async function updateUser(req, res, next) {
 
 // delete user
 
-export async function deleteUser(req, res, next) {
+export async function deleteUser(req: Request, res: Response, next: NextFunction) {
   try {
     await User.findByIdAndDelete(req.params.id);
     res.status(200).json("User has been deleted...");
