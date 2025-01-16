@@ -1,14 +1,15 @@
 import Note from "../models/note.models";
 import r2 from "../utils/r2";
+import { Request, Response, NextFunction } from "express";
 
-export function test(req, res) {
+export function test(req: Request, res: Response) {
   res.json({
     message: "API is working!",
   });
 }
 
 // get all notes at the same time and sort by recent on top 
-export async function notes(req, res, next) {
+export async function notes(req: Request, res: Response, next: NextFunction) {
   try {
     //sort by updatedAt vs createdAt;
     const notes = await Note.find().sort({updatedAt: -1});
@@ -19,7 +20,7 @@ export async function notes(req, res, next) {
 }
 
 // search database for notes that contain name.
-export async function searchForNoteByName(req, res, next){
+export async function searchForNoteByName(req: Request, res: Response, next: NextFunction){
     try {
       const regex = new RegExp(req.params.name, "i")  
       const events = await Note.find({ note_id: regex });
@@ -31,7 +32,7 @@ export async function searchForNoteByName(req, res, next){
 }
 
 // update user
-export async function upload(req, res, next) {
+export async function upload(req: Request, res: Response, next: NextFunction) {
   try {
     const rest = await r2.url("cses", req.params.id);
     const { title, classInfo, description, isPublic, uploader, currentUser } = req.body;

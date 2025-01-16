@@ -2,8 +2,9 @@ import User from "../models/user.model.js";
 import bcryptjs from "bcryptjs";
 import { errorHandler } from "../utils/error.js";
 import jwt from "jsonwebtoken";
+import { Request, Response, NextFunction } from "express";
 
-export async function signup(req, res, next) {
+export async function signup(req: Request, res: Response, next: NextFunction) {
   console.log("req.body", req.body);
   const { username, email, password } = req.body;
   const hashedPassword = bcryptjs.hashSync(password, 10);
@@ -16,7 +17,7 @@ export async function signup(req, res, next) {
   }
 }
 
-export async function signin(req, res, next) {
+export async function signin(req: Request, res: Response, next: NextFunction) {
   const { email, password } = req.body;
   try {
     const validUser = await User.findOne({ email });
@@ -32,7 +33,7 @@ export async function signin(req, res, next) {
   }
 }
 
-export async function isAuth(req, res, next) {
+export async function isAuth(req: Request, res: Response, next: NextFunction) {
   const token = req.cookies.access_token;
   if (!token) return next(errorHandler(401, "You are not authenticated!"));
 
@@ -43,7 +44,7 @@ export async function isAuth(req, res, next) {
   });
 }
 
-export async function google(req, res, next) {
+export async function google(req: Request, res: Response, next: NextFunction) {
   try {
     const user = await User.findOne({ email: req.body.email });
     if (user) {
@@ -83,7 +84,7 @@ export async function google(req, res, next) {
   }
 }
 
-export function signout(req, res) {
+export function signout(req: Request, res: Response) {
   console.log("signout", res);
   res.clearCookie("access_token").status(200).json("Signout success!");
 }
