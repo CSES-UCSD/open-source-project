@@ -1,24 +1,45 @@
-import { Link } from 'react-router-dom';
-import './NavBar.css';
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import "./NavBar.css";
 
-function NavBar({ isLoggedIn }) {
+function NavBar() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  const handleAuthClick = () => {
+    if (isLoggedIn) {
+      setIsLoggedIn(false);
+      navigate("/");
+    } else {
+      navigate("/dashboard");
+      setIsLoggedIn(true);
+    }
+  };
+
   return (
     <nav className="navbar">
-      <ul className="navbar-links">
-        {/* Links visible to everyone */}
-        <li>
-          <Link to="/faqs">FAQs</Link>
-        </li>
-        <li>
-          <Link to="/about">About Us</Link>
-        </li>
-        <li>
-          <Link to="/contact-us">Contact Us</Link>
-        </li>
+      {/* Logo linking to Home */}
+      <div className="navbar-logo">
+        <Link to="/">
+          <img src="src/assets/cses-opensource.png" alt="CSES Logo" className="logo-image" />
+        </Link>
+      </div>
 
-        {/* Conditional Links */}
-        {isLoggedIn ? (
-          // Additional links when logged in
+      {/* Centered Navbar Links */}
+      <ul className="navbar-links">
+        {!isLoggedIn ? (
+          <>
+            <li>
+              <Link to="/faqs">FAQs</Link>
+            </li>
+            <li>
+              <Link to="/about">About Us</Link>
+            </li>
+            <li>
+              <Link to="/contact-us">Contact Us</Link>
+            </li>
+          </>
+        ) : (
           <>
             <li>
               <Link to="/dashboard">Dashboard</Link>
@@ -26,17 +47,16 @@ function NavBar({ isLoggedIn }) {
             <li>
               <Link to="/upload">Upload Notes</Link>
             </li>
-            <li className="logout">
-              <Link to="/logout">Logout</Link>
-            </li>
           </>
-        ) : (
-          // Login/Sign Up link when logged out
-          <li className="login">
-            <Link to="/signin">Login/Sign Up</Link>
-          </li>
         )}
       </ul>
+
+      {/* Login/Logout Button */}
+      <div className="auth-button">
+        <button onClick={handleAuthClick}>
+          {isLoggedIn ? "Logout" : "Login"}
+        </button>
+      </div>
     </nav>
   );
 }

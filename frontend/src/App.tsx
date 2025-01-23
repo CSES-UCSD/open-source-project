@@ -16,45 +16,32 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const toggleLogin = () => {
-    setIsLoggedIn(!isLoggedIn);
+    setIsLoggedIn(!isLoggedIn); // Toggle the login/logout state
   };
 
   return (
     <BrowserRouter>
-    <div>
-      <NavBar isLoggedIn={isLoggedIn} />
-
-      <Routes>
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/" element={<Home />} />
-        <Route element={<PrivateRoute />}>
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/note" element={<Note />} />
-          <Route path="/upload" element={<Upload />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Route>
-      </Routes>
-
-      <div style={{ margin: '20px', textAlign: 'center' }}>
-        <button onClick={toggleLogin} style={buttonStyle}>
-          {isLoggedIn ? 'Logout' : 'Login'}
-        </button>
+      <div>
+        {/* Pass the login state and toggle function to NavBar */}
+        <NavBar isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} />
       </div>
-    </div>
+
+      <div>
+        <Routes>
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Home />} />
+          <Route element={<PrivateRoute />}>
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/note" element={<Note />} />
+            <Route path="/upload" element={<Upload />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Route>
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }
-
-const buttonStyle = {
-  padding: '10px 20px',
-  fontSize: '16px',
-  cursor: 'pointer',
-  backgroundColor: '#f4b400',
-  color: '#001a33',
-  border: 'none',
-  borderRadius: '5px',
-};
 
 export default App;
