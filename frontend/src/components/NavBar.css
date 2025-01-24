@@ -1,0 +1,110 @@
+/* Main Navbar container */
+.navbar {
+  position: fixed; /* Fix the navbar at the top */
+  top: 0;
+  width: 100%; /* Stretch across the width */
+  z-index: 1000; /* Ensure it stays above all content */
+  background-color: #001a33; /* Dark navy blue */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  height: 80px; /* Explicit navbar height */
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Add padding to prevent content overlap */
+body {
+  margin: 0; /* Reset default margins */
+  padding-top: 80px; /* Matches the height of the navbar */
+}
+
+/* Logo stays on the left */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo a {
+  text-decoration: none;
+}
+
+.logo-image {
+  height: 50px;
+  width: auto;
+  cursor: pointer;
+}
+
+/* Centered Navbar Links */
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  justify-content: center;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}
+
+/* Common link styling */
+.navbar-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+  color: #f4b400;
+}
+
+/* Auth Button (Login/Logout) on the right */
+.auth-button {
+  margin-left: auto;
+}
+
+.auth-button button {
+  background-color: #f4b400;
+  color: #001a33;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.auth-button button:hover {
+  background-color: #ffd966;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto; /* Adjust height for mobile */
+  }
+
+  .navbar-links {
+    justify-content: flex-start;
+    gap: 20px;
+    margin-top: 10px;
+  }
+
+  .auth-button {
+    margin-top: 10px;
+  }
+}
+
+/* Main Content Styling */
+.main-content {
+  padding: 20px; /* Add padding around the content */
+  background-color: #f9f9f9; /* Light background for contrast */
+  color: #333; /* Text color */
+  line-height: 1.6; /* Better readability */
+}

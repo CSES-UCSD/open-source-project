@@ -1,184 +1,159 @@
 .container {
     padding: 20px;
-    min-height: 100vh;
+    min-height: calc(100vh - 80px); /* Adjust for fixed navbar height */
   }
-
-.key-features-title {
+  
+  /* Title Section */
+  .title {
+    padding-top: 120px; /* Increased padding for space above the title */
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  
+  .name {
+    margin-top: 20px; /* Add spacing above the title */
+    margin-bottom: 10px;
+    color: #e5e7eb;
+  }
+  
+  .title-small {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #e5e7eb;
+  }
+  
+  /* Welcome Section */
+  .welcome-text {
+    font-size: 1.75rem;
+    line-height: 1.8;
+    color: #e5e7eb;
+    text-align: center;
+    padding: 60px 40px;
+    font-weight: 600;
+    max-width: 100%;
+  }
+  
+  /* Goal Section */
+  .goal-text-grid {
+    color: #e5e7eb;
+    display: flex;
+    gap: 30px; /* Space between text and image */
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 30px;
+    flex-wrap: wrap;
+  }
+  
+  .goal-text {
+    font-size: 1.5rem;
+    max-width: 500px;
+    text-align: left;
+    line-height: 1.8;
+  }
+  
+  .logo {
+    width: 40%;
+    height: auto;
+    align-self: flex-start;
+    max-width: 300px; /* Prevent oversized logos */
+  }
+  
+  /* Key Features Section */
+  .key-features-title {
     display: inline-block;
-    padding: 0px 20px 0px 20px;
-    margin: 0 auto 30px auto;
+    padding: 15px 25px;
+    margin: 50px auto 30px auto; /* Increased top margin */
     border-radius: 30px;
     background-color: rgba(0, 4, 62, 0.7);
-    letter-spacing: 10px;
-    word-spacing: 15px;
-    max-width: 80%;
+    letter-spacing: 5px;
+    word-spacing: 8px;
+    max-width: 90%; /* Allow more flexibility */
     text-align: center;
-    overflow-wrap: break-word; 
-}
-
-
-.key-features {
-    text-align: center;
-    margin-bottom: 5rem;
-}
+    overflow-wrap: break-word;
+  }
   
-.features-title {
-    font-size: 3rem;
+  .features-title {
+    font-size: 2.5rem;
     font-weight: bold;
-    color: rgba(255, 255, 255, 0.76);
+    color: rgba(255, 255, 255, 0.9);
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     word-break: break-word;
-}
+    margin-bottom: 1rem;
+  }
   
-.features-grid {
+  .features-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-top: 20px;
   }
   
-.feature-card {
-    background-color: #00043E9C;
+  .feature-card {
+    background-color: rgba(0, 4, 62, 0.85); /* Subtle opacity for better contrast */
     padding: 20px;
-    border-radius: 10px;
-    width: 300px;
+    border-radius: 15px;
+    width: 280px;
     min-height: 40vh;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    border-radius: 5%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     text-align: center;
     color: #ffffff;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-
-.feature-card:hover {
+  
+  .feature-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
-}
-
-.feature-title {
-    font-size: 2rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  }
+  
+  .feature-title {
+    font-size: 1.75rem;
     font-weight: bold;
     color: #d1d5db;
-    letter-spacing: 4px;
-    word-spacing: 7px;
-}
-
-.feature-title p {
-    font-size: 1rem;
-    margin: 0;
-}
-  
-.feature-text {
-    font-size: 1.25rem;
-    line-height: 1.8;
-    color: #e5e7eb; 
-    text-align: center;
-}
-  
-.title {
-    padding-top: 30px;
-    margin-bottom: 0px;
-    text-align: center;
-    font-size: 1.5rem;
-}
-
-.name{
+    letter-spacing: 2px;
+    word-spacing: 4px;
     margin-bottom: 10px;
-    color: #e5e7eb; 
-}
-
-.title-small{
-    margin: 0;
-    margin-top: 0px;
+  }
+  
+  .feature-text {
     font-size: 1.25rem;
-    color: #e5e7eb; 
-
-}
-
-.welcome-text{
-    font-size: 2rem;
     line-height: 1.8;
-    color: #e5e7eb; 
+    color: #e5e7eb;
     text-align: center;
-    padding: 60px 100px;
-    font-weight: 600;
-}
-
-.goal-text-grid {
-    color: #e5e7eb; 
-    display: flex;
-    gap: 30px; /* Space between text and image */
-    justify-content: center; 
-    align-items: flex-start; /* Align items at the top */
-    padding: 50px;
-    flex-wrap: wrap;
-}
-
-.goal-text {
-    font-size: 1.75rem;
-    max-width: 500px; /* Limit text width */
-    text-align: left; 
-    margin-top: 0px;
-    margin-right: 3rem;
-    line-height: 1.8;
-}
-
-.logo {
-    width: 40%; 
-    height: auto; 
-    align-self: flex-start; 
-}
-
-@media screen and (max-width: 800px) {
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 800px) {
     .feature-card {
-        width: 250px;
-        min-height: 25vh;
+      width: 240px;
+      min-height: 35vh;
     }
     .features-grid {
-        gap: 20px;
-        flex-direction: column;
-    }
-    .features-title {
-        letter-spacing: 15px;
-        word-spacing: 10px;
-        font-size: 2.5rem;
+      gap: 20px;
+      flex-direction: column;
     }
     .key-features-title {
-        margin: 0 auto 20px auto;
-        padding-bottom: 0;
-        min-width: 50%;
+      margin: 30px auto 20px auto; /* Adjust for smaller screens */
     }
-}
-
-@media screen and (max-width: 540px) {
-    .feature-title {
-        font-size: 1.5rem;
-        letter-spacing: 3px;
-        word-spacing: 5px;
-    }
-    
-    .feature-title p {
-        font-size: 0.875rem;
-    }
-      
-    .feature-text {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
+  }
+  
+  @media screen and (max-width: 540px) {
     .feature-card {
-        width: 200px;
-        border-radius: 15px;
+      width: 200px;
+      border-radius: 10px;
     }
     .features-title {
-        letter-spacing: 10px;
-        word-spacing: 7px;
-        font-size: 1.5rem;
+      font-size: 1.5rem;
     }
     .key-features-title {
-        padding-bottom: 0;
-        border-radius: 20px;
-        width: 100%;
+      margin: 20px auto;
     }
-}
+    .welcome-text {
+      font-size: 1.5rem;
+      padding: 30px 20px;
+    }
+  }
+  
