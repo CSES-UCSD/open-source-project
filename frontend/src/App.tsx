@@ -9,22 +9,37 @@ import Profile from "./pages/Profile";
 import Note from "./pages/Note";
 import Upload from "./pages/Upload";
 import Dashboard from "./pages/Dashboard";
+import { useState } from "react";
+import NavBar from "./components/NavBar";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const toggleLogin = () => {
+    setIsLoggedIn(!isLoggedIn); // Toggle the login/logout state
+  };
+
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/" element={<Home />} />
-        <Route element={<PrivateRoute />}>
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/note" element={<Note />} />
-          <Route path="/upload" element={<Upload />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Route>
-      </Routes>
+      <div>
+        {/* Pass the login state and toggle function to NavBar */}
+        <NavBar isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} />
+      </div>
+
+      <div>
+        <Routes>
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Home />} />
+          <Route element={<PrivateRoute />}>
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/note" element={<Note />} />
+            <Route path="/upload" element={<Upload />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Route>
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }
